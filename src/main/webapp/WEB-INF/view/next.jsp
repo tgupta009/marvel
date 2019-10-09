@@ -6,7 +6,7 @@
 <body>
 <div>
 <div>
-<h1>Green initiative details</h1>
+<h1>MyBank Application</h1>
 <h2>Hello, ${message}</h2>
 <table border="1" cellpadding="5">
 <caption><h2>List of Txn</h2></caption>

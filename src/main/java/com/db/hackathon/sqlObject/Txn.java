@@ -6,19 +6,18 @@ import java.time.Instant;
 public class Txn {
     int txnid;
     int acctno;
-    Instant txtime;
+    String txtime;
     String txtype;
     double amount;
     double balance;
     String txtext;
-    String greenFlag;
 
     @Override
     public String toString() {
         return "Txn{" +
                 "txnid=" + txnid +
                 ", acctno=" + acctno +
-                ", txtime=" + txtime +
+                ", txtime='" + txtime + '\'' +
                 ", txtype='" + txtype + '\'' +
                 ", amount=" + amount +
                 ", balance=" + balance +
@@ -27,7 +26,15 @@ public class Txn {
                 '}';
     }
 
+    String greenFlag;
 
+    public String getTxtime() {
+        return txtime;
+    }
+
+    public void setTxtime(String txtime) {
+        this.txtime = txtime;
+    }
 
     public int getTxnid() {
         return txnid;
@@ -45,13 +52,7 @@ public class Txn {
         this.acctno = acctno;
     }
 
-    public Instant getTxtime() {
-        return txtime;
-    }
 
-    public void setTxtime(Instant txtime) {
-        this.txtime = txtime;
-    }
 
     public String getTxtype() {
         return txtype;
