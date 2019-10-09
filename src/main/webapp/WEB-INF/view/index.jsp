@@ -5,9 +5,9 @@
 	<div>
 		<div>
 			<h1>MyBank Application</h1>
-			<h2>Hello ${message}</h2>
-			
-			Click on this <strong><a href="next">link</a></strong> to visit another page.
+			<h2>Hello, ${message}</h2>
+
+			Click <strong><a href="next">here</a></strong> to activate green initiative
 		</div>
 	</div>
 </body>
