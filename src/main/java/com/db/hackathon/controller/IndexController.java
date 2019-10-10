@@ -1,5 +1,6 @@
 package com.db.hackathon.controller;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Map;
 
@@ -13,26 +14,34 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class IndexController {
-
     @Autowired
-    private HttpSession httpSession;
+    HttpSession httpSession;
 
     @Autowired
     AccountService accountService;
 
     @RequestMapping("/welcome")
     public String home(Map<String, Object> model) {
-        model.put("message", "MyBankApplication !!");
+        model.put("message", "MyBankApplication.");
+        model.put("custName", "John");
+        model.put("loginTime", Instant.now());
         return "index";
     }
 
-    @RequestMapping("/next")
-    public String next(Map<String, Object> model) {
+    @RequestMapping("/viewTxnDtls")
+    public String viewTxnDtls(Map<String, Object> model) {
         List<Txn> txnList = accountService.getTxDtls(101);
-       // httpSession.setAttribute("txnList", txnList);
         model.put("txnList", txnList);
         model.put("message", "Thank you for opting sustainability-initiatives.");
-        return "next";
+        httpSession.setAttribute("txnList",txnList);
+        return "viewTxnDtls";
     }
 
+    @RequestMapping("/activateGreenInitiative")
+    public String activateGreenInitiative(Map<String, Object> model) {
+        List<Txn> txnList = accountService.getTxDtls(101);
+        model.put("txnList", txnList);
+        model.put("message", "Thank you for opting sustainability-initiatives.");
+        return "activateGreenInitiative";
+    }
 }
