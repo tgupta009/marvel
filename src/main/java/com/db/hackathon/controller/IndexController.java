@@ -19,9 +19,15 @@ public class IndexController {
 
     @Autowired
     AccountService accountService;
+    
+    @RequestMapping("/")
+    public String home(Map<String, Object> model) {
+        return "index";
+    }    
+    
 
     @RequestMapping("/welcome")
-    public String home(Map<String, Object> model) {
+    public String home2(Map<String, Object> model) {
         model.put("message", "MyBankApplication.");
         model.put("custName", "John");
         model.put("loginTime", Instant.now());
